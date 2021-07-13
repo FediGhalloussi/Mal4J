@@ -224,7 +224,6 @@ class APICall {
         }
 
     }
-
     // initialize HTTPUrlConnection
     static {
         final String version = System.getProperty("java.version");
@@ -233,7 +232,10 @@ class APICall {
         if(!useNetHttp)
             try{
                 Field methods;
+                Field[] allFields;
                 try{ // Standard Java implementation and Android API 23+ (6.0+)
+                    allFields = HttpURLConnection.class.getDeclaredFields();
+                    System.out.println(allFields + "teeeeeeest");
                     methods = HttpURLConnection.class.getDeclaredField("methods");
                 }catch(final NoSuchFieldException ignored){ // Android compatibility fixes below
                     try{ // Android API 13-22 (3.2 - 5.1.1)
