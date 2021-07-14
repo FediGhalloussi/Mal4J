@@ -235,7 +235,9 @@ class APICall {
                 Field[] allFields;
                 try{ // Standard Java implementation and Android API 23+ (6.0+)
                     allFields = HttpURLConnection.class.getDeclaredFields();
-                    System.out.println(allFields + "teeeeeeest");
+                    for (Field f : allFields){
+                        System.out.println(f + "-------teeeeeeest");
+                    }
                     methods = HttpURLConnection.class.getDeclaredField("methods");
                 }catch(final NoSuchFieldException ignored){ // Android compatibility fixes below
                     try{ // Android API 13-22 (3.2 - 5.1.1)
