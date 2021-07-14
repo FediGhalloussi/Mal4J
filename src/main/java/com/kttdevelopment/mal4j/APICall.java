@@ -285,10 +285,10 @@ class APICall {
                 methods.setAccessible(true);
 
                 // add PATCH to methods array
-                final String[] nativeMethods = (String[]) methods.get(null);
+                /*final String[] nativeMethods = (String[]) methods.get(null);
                 final Set<String> newMethods = new HashSet<>(Arrays.asList(nativeMethods));
                 newMethods.add("PATCH");
-                methods.set(null , newMethods.toArray(new String[0]));
+                methods.set(null , newMethods.toArray(new String[0]));*/
 
                 // set field to FINAL
                 modifiers.setInt(methods, methods.getModifiers() | Modifier.FINAL);
