@@ -252,7 +252,11 @@ class APICall {
                                 //noinspection JavaReflectionMemberAccess
                                 methods = HttpURLConnection.class.getDeclaredField("methodTokens");
                             }catch(final NoSuchFieldException ignored3){
-                                throw new AndroidCompatibilityException("The current Android version is not compatible with this library; no field 'methods'");
+                                try{ // test
+                                    methods = HttpURLConnection.class.getDeclaredField("method");
+                                }catch(final NoSuchFieldException ignored4){
+                                    throw new AndroidCompatibilityException("The current Android version is not compatible with this library; no field 'methods'");
+                                }
                             }
                         }
                     }
